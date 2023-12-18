@@ -23,5 +23,14 @@ print(df.head(10))
 X=df['Hours']  # X is the value to be predicted
 Y=df['Scores'] # Y is the value based on which the prediction is made
 
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=50)
 
+# Create a Linear Regression model
+model = LinearRegression()
 
+# Train the model on the training data
+model.fit(X_train, y_train)
+
+# Make predictions on the test set
+y_pred = model.predict(X_test)
